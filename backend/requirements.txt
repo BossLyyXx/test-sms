@@ -4,3 +4,4 @@ aiohttp
 fake-useragent
 phonenumbers
 requests
+python-multipart
