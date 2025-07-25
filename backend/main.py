@@ -84,7 +84,7 @@ def send_sms_to_number(phone_number, num_attempts):
 
 # 3. ส่วนของ FastAPI Web Application
 app = FastAPI()
-templates = Jinja2Templates(directory=".") # สมมติว่า index.html อยู่ในโฟลเดอร์เดียวกัน
+templates = Jinja2Templates(directory="../frontend")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
