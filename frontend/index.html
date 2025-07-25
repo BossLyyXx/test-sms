@@ -15,5 +15,30 @@
 
     <button type="submit">ส่งเลย</button>
   </form>
+
+  <script>
+    // รอให้หน้าเว็บโหลดเสร็จก่อน
+    window.onload = function() {
+      // ดึงพารามิเตอร์ทั้งหมดจาก URL (เช่น ?status=sent)
+      const urlParams = new URLSearchParams(window.location.search);
+      // ดึงค่าของพารามิเตอร์ที่ชื่อ 'status'
+      const status = urlParams.get('status');
+
+      // ตรวจสอบว่าค่า status ที่ได้มาคือ 'sent' หรือไม่
+      if (status === 'sent') {
+        // 1. สร้าง element <p> ขึ้นมาใหม่สำหรับแสดงข้อความ
+        const messageElement = document.createElement('p');
+        
+        // 2. กำหนดข้อความและสี
+        messageElement.textContent = '✅ ส่งคำสั่งเรียบร้อย! ระบบกำลังดำเนินการส่ง SMS...';
+        messageElement.style.color = 'green';
+        messageElement.style.fontWeight = 'bold';
+
+        // 3. นำข้อความที่สร้างไปแทรกไว้ก่อนฟอร์ม
+        const form = document.querySelector('form');
+        form.insertAdjacentElement('beforebegin', messageElement);
+      }
+    };
+  </script>
 </body>
 </html>
